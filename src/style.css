@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+:root {
+  --color-font: #ccc;
+  --color-bgH: #1e2127;
+  --color-bgS: #22242f;
+  --color-button: #101416;
+  --color-buttonSelect: #6657ce;
+  --shadow: 2em 2em 6em rgba(0, 0, 0, 0.25);
+  --font: 'Open Sans', sans-serif;
+  --light: 300;
+  --regular: 400;
+  --bold: 700;
+}
+
+html,
+body {
+  background: var(--color-bgH);
+  font-family: var(--font);
+  color: var(--color-font);
+}
+
+body,
+main,
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  height: 100vh;
+}
+
+main {
+  flex-direction: column;
+  width: 32rem;
+  height: fit-content;
+  background: var(--color-bgS);
+  box-shadow: var(--shadow);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.container {
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.container .container-txt {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+}
+
+.container-txt .final-msg {
+  text-align: center;
+}
+
+.container .question-txt {
+  height: 2rem;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: var(--bold);
+}
+
+.container .answers {
+  display: grid;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.answers .answer {
+  display: flex;
+  gap: 0.5rem;
+  font-weight: var(--light);
+}
+
+.answer input,
+label {
+  cursor: pointer;
+}
+
+.container .submit {
+  display: block;
+  border: none;
+
+  font-family: var(--font);
+  font-size: 1.5rem;
+  font-weight: var(--bold);
+  color: var(--color-font);
+  width: 100%;
+  height: 4rem;
+  background: var(--color-button);
+  cursor: pointer;
+}
+.submit:hover {
+  transition: all ease 0.3s;
+  background: var(--color-buttonSelect);
+}
+
+.reload {
+  width: 100%;
+}
