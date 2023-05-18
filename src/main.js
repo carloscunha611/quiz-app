@@ -1,6 +1,6 @@
 const quizData = [
   {
-    question: 'Qual bicho transmite Doença de Chagas?',
+    question: '1. Qual bicho transmite Doença de Chagas?',
     a: 'Abelha',
     b: 'Barata',
     c: 'Pulga',
@@ -8,7 +8,7 @@ const quizData = [
     correct: 'd'
   },
   {
-    question: 'Qual fruto é conhecido no Norte e Nordeste como "jerimum"?',
+    question: '2. Qual fruto é conhecido no Norte e Nordeste como "jerimum"?',
     a: 'Caju',
     b: 'Abóbora',
     c: 'Chuchu',
@@ -16,7 +16,7 @@ const quizData = [
     correct: 'b'
   },
   {
-    question: 'Qual é o coletivo de cães?',
+    question: '3. Qual é o coletivo de cães?',
     a: 'Matilha',
     b: 'Rebanho',
     c: 'Alcateia',
@@ -24,7 +24,7 @@ const quizData = [
     correct: 'a'
   },
   {
-    question: 'Qual é o triângulo que tem todos os lados diferentes?',
+    question: '4. Qual é o triângulo que tem todos os lados diferentes?',
     a: 'Equilátero',
     b: 'Isóceles',
     c: 'Escaleno',
@@ -32,7 +32,7 @@ const quizData = [
     correct: 'c'
   },
   {
-    question: 'Quem compôs o Hino da Independência?',
+    question: '5. Quem compôs o Hino da Independência?',
     a: 'Dom Pedro I',
     b: 'Manuel Bandeira',
     c: 'Castro Alvez',
@@ -40,7 +40,7 @@ const quizData = [
     correct: 'a'
   },
   {
-    question: 'Qual é o maior país do mundo em área territorial?',
+    question: '6. Qual é o maior país do mundo em área territorial?',
     a: 'Russia',
     b: 'Canáda',
     c: 'China',
@@ -48,7 +48,8 @@ const quizData = [
     correct: 'a'
   },
   {
-    question: 'Qual é o elemento químico mais abundante na crosta terrestre?',
+    question:
+      '7. Qual é o elemento químico mais abundante na crosta terrestre?',
     a: 'Oxigênio',
     b: 'Silício',
     c: 'Alumínio',
@@ -56,7 +57,7 @@ const quizData = [
     correct: 'a'
   },
   {
-    question: 'Qual é a montanha mais alta do mundo?',
+    question: '8. Qual é a montanha mais alta do mundo?',
     a: 'Monte Everest',
     b: 'Monte Kilimanjaro',
     c: 'Monte Aconcágua',
@@ -64,7 +65,7 @@ const quizData = [
     correct: 'a'
   },
   {
-    question: 'Quem pintou a Mona Lisa?',
+    question: '9. Quem pintou a Mona Lisa?',
     a: 'Michelangelo',
     b: 'Pablo Picasso',
     c: 'Leonardo da Vinci',
@@ -72,7 +73,7 @@ const quizData = [
     correct: 'c'
   },
   {
-    question: 'Qual é a capital do Brasil?',
+    question: '10. Qual é a capital do Brasil?',
     a: 'Rio de Janeiro',
     b: 'Brasilia',
     c: 'São Paulo',
@@ -136,9 +137,15 @@ submit_bnt.addEventListener('click', () => {
     if (currentQuiz < quizData.length) {
       loadQuiz()
     } else {
-      quiz.innerHTML = `<h2 class = 'final-msg'> Você acertou ${score}/${quizData.length}</h2> 
+      if (score > 6) {
+        quiz.innerHTML = `<h2 class = 'final-msg'> Você acertou <span class = 'approved'>${score}</span>/${quizData.length}</h2> 
       
-      <button class="submit reload" onclick = 'location.reload()'>Reload</button>`
+      <button class="submit reload" onclick = 'location.reload()'>Recomeçar</button>`
+      } else {
+        quiz.innerHTML = `<h2 class = 'final-msg'> Você acertou <span class = 'disapproved'>${score}</span>/${quizData.length}</h2> 
+      
+      <button class="submit reload" onclick = 'location.reload()'>Tentar novamente</button>`
+      }
     }
   }
 })

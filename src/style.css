@@ -7,11 +7,13 @@
 
 :root {
   --color-font: #ccc;
-  --color-bgH: #1e2127;
-  --color-bgS: #22242f;
-  --color-button: #101416;
-  --color-buttonSelect: #6657ce;
-  --shadow: 2em 2em 6em rgba(0, 0, 0, 0.25);
+  --color-bgH: #130f40;
+  --color-gradient: linear-gradient(315deg, #130f40 0%, #0c0c0c 74%);
+  --color-bgS: rgba(19, 15, 64, 0.1);
+  --color-button: rgba(19, 15, 64, 1);
+  --color-buttonSelect: #4834d4;
+  --color-buttonGradient: linear-gradient(315deg, #4834d4 0%, #0c0c0c 74%);
+  --shadow: 1em 1em 1.5em rgba(0, 0, 0, 0.25);
   --font: 'Open Sans', sans-serif;
   --light: 300;
   --regular: 400;
@@ -21,12 +23,16 @@
 html,
 body {
   background: var(--color-bgH);
+  background-image: var(--color-gradient);
   font-family: var(--font);
   color: var(--color-font);
+  user-select: none;
+  overflow: hidden;
 }
 
 body,
 main,
+footer,
 .container {
   display: flex;
   align-items: center;
@@ -34,7 +40,30 @@ main,
 }
 
 body {
+  flex-direction: column;
+  gap: 2rem;
   height: 100vh;
+}
+
+header {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  top: 1.5rem;
+  padding: 0 2rem;
+  width: 100%;
+  height: 2rem;
+}
+
+#themeToggle[type='checkbox'] {
+  display: none;
+}
+
+.title {
+  font-size: 4rem;
+  position: fixed;
+  top: 4rem;
 }
 
 main {
@@ -43,8 +72,10 @@ main {
   height: fit-content;
   background: var(--color-bgS);
   box-shadow: var(--shadow);
+  border: 2px solid var(--color-font);
   border-radius: 1rem;
   overflow: hidden;
+  backdrop-filter: blur(10px);
 }
 
 .container {
@@ -91,6 +122,27 @@ label {
   cursor: pointer;
 }
 
+.answer-txt[type='radio'] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  width: 1rem;
+  height: 1rem;
+
+  border: 2px solid var(--color-font);
+  border-radius: 50%;
+
+  background-color: var(--color-button);
+}
+
+.answer-txt[type='radio']:checked {
+  background-color: var(--color-buttonSelect);
+}
+.answer-txt[type='radio']:checked + label {
+  font-weight: var(--bold);
+}
+
 .container .submit {
   display: block;
   border: none;
@@ -107,8 +159,35 @@ label {
 .submit:hover {
   transition: all ease 0.3s;
   background: var(--color-buttonSelect);
+  background-image: var(--color-buttonGradient);
 }
 
 .reload {
   width: 100%;
+}
+
+h2 .approved {
+  color: green;
+}
+
+h2 .disapproved {
+  color: red;
+}
+
+footer {
+  position: absolute;
+  bottom: 4rem;
+  opacity: 0.5;
+  width: 100%;
+}
+
+@media (max-width: 428px) {
+  main {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  button:active {
+    background: var(--color-button);
+  }
 }

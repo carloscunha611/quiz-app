@@ -1,0 +1,47 @@
+:root {
+  --color-font-light: #130f40;
+  --color-bgH-light: #d7e1ec;
+  --color-gradient-light: linear-gradient(315deg, #ccc 0%, #d7e1ec 74%);
+  --color-bgS-light: #130f401a;
+  --color-button-light: #c3cbdc;
+  --color-buttonSelect-light: #4834d4;
+  --color-buttonGradient-light: linear-gradient(
+    147deg,
+    #c3cbdc 0%,
+    #edf1f4 74%
+  );
+
+  --light: 300;
+  --regular: 400;
+  --bold: 700;
+}
+
+body.light {
+  color: var(--color-font-light);
+  background-color: var(--color-bgH-light);
+  background-image: var(--color-gradient-light);
+}
+
+main.light {
+  border-color: var(--color-font-light);
+}
+
+.answer-txt.light[type='radio'] {
+  border-color: var(--color-button);
+  background-color: var(--color-button-light);
+}
+.answer-txt.light[type='radio']:checked {
+  background-color: var(--color-buttonSelect);
+}
+
+.container .submit.light {
+  color: var(--color-font-light);
+  background: var(--color-button-light);
+}
+.container .submit.light:hover {
+  background-image: var(--color-buttonGradient-light);
+}
+
+footer.light {
+  color: var(--color-font-light);
+}
