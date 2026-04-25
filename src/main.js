@@ -93,7 +93,6 @@ const submit_bnt = document.getElementById('submit-bnt')
 
 let currentQuiz = 0
 let score = 0
-let answer = undefined
 
 loadQuiz()
 
@@ -109,13 +108,15 @@ function loadQuiz() {
 }
 
 function getSelected() {
+  let selectedAnswer
+
   answer_txt.forEach(answer_txt => {
     if (answer_txt.checked) {
-      answer = answer_txt.id
+      selectedAnswer = answer_txt.id
     }
   })
 
-  return answer
+  return selectedAnswer
 }
 
 function deselectAnswers() {
@@ -125,11 +126,10 @@ function deselectAnswers() {
 }
 
 submit_bnt.addEventListener('click', () => {
-  const answer = getSelected()
+  const selectedAnswer = getSelected()
 
-  console.log(answer)
-  if (answer) {
-    if (answer === quizData[currentQuiz].correct) {
+  if (selectedAnswer) {
+    if (selectedAnswer === quizData[currentQuiz].correct) {
       score++
     }
 
